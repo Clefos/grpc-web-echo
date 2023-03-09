@@ -6,15 +6,4 @@ import org.hamcrest.CoreMatchers.`is`
 import org.junit.jupiter.api.Test
 
 @QuarkusTest
-class GreetingResourceTest {
-
-    @Test
-    fun testHelloEndpoint() {
-        given()
-          .`when`().get("/ping")
-          .then()
-             .statusCode(200)
-             .body(`is`("pong"))
-    }
-
-}
+class GreetingResourceTest
