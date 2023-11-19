@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {EchoServiceClient} from "../proto/binstat.pbsc";
-import {EchoRequest} from "../proto/binstat.pb";
+import {EchoServiceClient} from '../proto/echo-grpc.pbsc';
+import {EchoRequest} from '../proto/echo-grpc.pb';
 
 @Component({
   selector: 'app-root',

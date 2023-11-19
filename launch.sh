@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Start the binstat server
+# Start the echo-grpc server
 ./application &
 
 # Start the envoy grpc web proxy

@@ -35,13 +35,32 @@ java {
 tasks.withType<Test> {
     systemProperty("java.util.logging.manager", "org.jboss.logmanager.LogManager")
 }
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
+    kotlinOptions.javaParameters = true
+}
+
 allOpen {
     annotation("javax.ws.rs.Path")
     annotation("javax.enterprise.context.ApplicationScoped")
     annotation("io.quarkus.test.junit.QuarkusTest")
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
-    kotlinOptions.javaParameters = true
+tasks.register<Delete>("deleteExistingProtoFiles") {
+    delete(fileTree("./src/main/proto").matching {
+        include("**/.*proto")
+    })
+}
+
+tasks.register<Copy>("copyProtoFiles") {
+    dependsOn("deleteExistingProtoFiles")
+    
+    from("../proto")
+    include("**/*.proto")
+    into("./src/main/proto")
+}
+
+tasks.named("build") {
+    dependsOn("copyProtoFiles")
 }

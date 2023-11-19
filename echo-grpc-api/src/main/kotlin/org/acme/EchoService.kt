@@ -1,15 +1,15 @@
 package org.acme
 
-import grpc.gateway.Binstat.EchoResponse
-import grpc.gateway.Binstat.EchoRequest
-import grpc.gateway.EchoServiceGrpc.EchoServiceImplBase
+import org.acme.grpc.EchoResponse
+import org.acme.grpc.EchoRequest
+import org.acme.grpc.EchoServiceGrpc.EchoServiceImplBase
 import io.grpc.stub.StreamObserver
 import io.quarkus.grpc.GrpcService
 import javax.inject.Singleton
 
 @Singleton
 @GrpcService
-class EchoService: EchoServiceImplBase() {
+class EchoService : EchoServiceImplBase() {
 
     override fun echo(request: EchoRequest, responseObserver: StreamObserver<EchoResponse>) {
         val echoMessage = request.message

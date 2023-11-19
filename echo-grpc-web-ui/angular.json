@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "binstat": {
+    "echo-grpc-web": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/binstat",
+            "outputPath": "dist/echo-grpc-web-ui",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "binstat:build:production"
+              "browserTarget": "echo-grpc-web:build:production"
             },
             "development": {
-              "browserTarget": "binstat:build:development"
+              "browserTarget": "echo-grpc-web:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "binstat:build"
+            "browserTarget": "echo-grpc-web:build"
           }
         },
         "test": {
