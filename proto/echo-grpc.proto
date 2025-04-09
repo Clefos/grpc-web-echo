@@ -2,12 +2,18 @@ syntax = "proto3";
 
 option java_multiple_files = true;
 option java_package = "org.acme.grpc";
-option java_outer_classname = "Echo";
+option java_outer_classname = "EchoGrpc";
 
 package echo;
 
 message EchoRequest {
   string message = 1;
+}
+
+message EchoStreamingRequest {
+  string message = 1;
+  int32 frequency = 2;
+  int32 echoes = 3;
 }
 
 message EchoResponse {
@@ -16,4 +22,6 @@ message EchoResponse {
 
 service EchoService {
   rpc Echo(EchoRequest) returns (EchoResponse);
+  rpc EchoStreaming(EchoStreamingRequest) returns (stream EchoResponse);
 }
+

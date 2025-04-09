@@ -1,6 +1,10 @@
-# Gradle
-.gradle/
-build/
+#Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+release.properties
+.flattened-pom.xml
 
 # Eclipse
 .project
@@ -35,5 +39,7 @@ nb-configuration.xml
 # Local environment
 .env
 
-# GRPC
-src/main/proto/**/*.proto
+# Plugin directory
+/.quarkus/cli/plugins/
+# TLS Certificates
+.certs/
